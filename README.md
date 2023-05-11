@@ -76,88 +76,37 @@ These use cases cover the major functionalities provided by BookMyShow and the i
 ## Class Diagram
 
 ```
-+-----------------------+
-|        User           |
-+-----------------------+
-|                       |
-| + searchMovie()       |
-| + bookSeat()          |
-| + cancelBooking()     |
-| + makePayment()       |
-| + requestRefund()     |
-+-----------------------+
++-----------------------+       +-----------------------+       +-----------------------+
+|        User           |       |        Admin          |       |        Theatre        |
++-----------------------+       +-----------------------+       +-----------------------+
+|                       |       |                       |       | - theatreId: int      |
+| + searchMovie()       |       | + addTheatre()        |       | - name: string        |
+| + bookSeat()          |       | + addAuditorium()     |       | - city: string        |
+| + cancelBooking()     |       | + addShow()           |       | - location: string    |
+| + makePayment()       |       | + addMovie()          |       | - auditoriums: list   |
+| + requestRefund()     |       | + updateTheatre()     |       | + addAuditorium()     |
++-----------------------+       | + updateAuditorium()  |       | + removeAuditorium()  |
+                                | + updateShow()        |       +-----------------------+
+                                | + updateMovie()       |
+                                | + removeTheatre()     |
+                                | + removeAuditorium()  |
+                                | + removeShow()        |
+                                | + removeMovie()       |
+                                +-----------------------+
 
-+-----------------------+
-|        Admin          |
-+-----------------------+
-|                       |
-| + addTheatre()        |
-| + addAuditorium()     |
-| + addShow()           |
-| + addMovie()          |
-| + updateTheatre()     |
-| + updateAuditorium()  |
-| + updateShow()        |
-| + updateMovie()       |
-| + removeTheatre()     |
-| + removeAuditorium()  |
-| + removeShow()        |
-| + removeMovie()       |
-+-----------------------+
-
-+-----------------------+
-|        Theatre        |
-+-----------------------+
-| - theatreId: int      |
-| - name: string        |
-| - city: string        |
-| - location: string    |
-| - auditoriums: list   |
-+-----------------------+
-| + addAuditorium()     |
-| + removeAuditorium()  |
-+-----------------------+
-
-+-----------------------+
-|      Auditorium       |
-+-----------------------+
-| - auditoriumId: int   |
-| - name: string        |
-| - features: list      |
-| - seats: list         |
-+-----------------------+
-| + addSeat()           |
-| + removeSeat()        |
-+-----------------------+
-
-+-----------------------+
-|        Seat           |
-+-----------------------+
-| - seatId: int         |
-| - type: string        |
-| - cost: float         |
-| - isBooked: bool      |
-+-----------------------+
-| + book()              |
-| + cancelBooking()     |
-| + reserve()           |
-| + release()           |
-+-----------------------+
-
-+-----------------------+
-|         Show          |
-+-----------------------+
-| - showId: int         |
-| - theatre: Theatre    |
-| - auditorium: Auditorium |
-| - movie: Movie        |
-| - timeSlot: datetime  |
-| - isAvailable: bool   |
-| - features: list      |
-+-----------------------+
-| + bookSeat()          |
-| + cancelBooking()     |
-+-----------------------+
++-----------------------+       +-----------------------+       +-----------------------+
+|      Auditorium       |       |        Seat           |       |         Show          |
++-----------------------+       +-----------------------+       +-----------------------+
+| - auditoriumId: int   |       | - seatId: int         |       | - showId: int         |
+| - name: string        |       | - type: string        |       | - theatre: Theatre    |
+| - features: list      |       | - cost: float         |       | - auditorium: Auditorium |
+| - seats: list         |       | - isBooked: bool      |       | - movie: Movie        |
+| + addSeat()           |       +-----------------------+       | - timeSlot: datetime  |
+| + removeSeat()        |       | + book()              |       | - isAvailable: bool   |
++-----------------------+       | + cancelBooking()     |       | - features: list      |
+                                | + reserve()           |       | + bookSeat()          |
+                                | + release()           |       | + cancelBooking()     |
+                                +-----------------------+       +-----------------------+
 
 +-----------------------+
 |        Movie          |
