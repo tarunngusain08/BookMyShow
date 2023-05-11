@@ -73,3 +73,107 @@ These use cases cover the major functionalities provided by BookMyShow and the i
 +---------------+
 ```
 
+## Class Diagram
+
+```
++-----------------------+
+|        User           |
++-----------------------+
+|                       |
+| + searchMovie()       |
+| + bookSeat()          |
+| + cancelBooking()     |
+| + makePayment()       |
+| + requestRefund()     |
++-----------------------+
+
++-----------------------+
+|        Admin          |
++-----------------------+
+|                       |
+| + addTheatre()        |
+| + addAuditorium()     |
+| + addShow()           |
+| + addMovie()          |
+| + updateTheatre()     |
+| + updateAuditorium()  |
+| + updateShow()        |
+| + updateMovie()       |
+| + removeTheatre()     |
+| + removeAuditorium()  |
+| + removeShow()        |
+| + removeMovie()       |
++-----------------------+
+
++-----------------------+
+|        Theatre        |
++-----------------------+
+| - theatreId: int      |
+| - name: string        |
+| - city: string        |
+| - location: string    |
+| - auditoriums: list   |
++-----------------------+
+| + addAuditorium()     |
+| + removeAuditorium()  |
++-----------------------+
+
++-----------------------+
+|      Auditorium       |
++-----------------------+
+| - auditoriumId: int   |
+| - name: string        |
+| - features: list      |
+| - seats: list         |
++-----------------------+
+| + addSeat()           |
+| + removeSeat()        |
++-----------------------+
+
++-----------------------+
+|        Seat           |
++-----------------------+
+| - seatId: int         |
+| - type: string        |
+| - cost: float         |
+| - isBooked: bool      |
++-----------------------+
+| + book()              |
+| + cancelBooking()     |
+| + reserve()           |
+| + release()           |
++-----------------------+
+
++-----------------------+
+|         Show          |
++-----------------------+
+| - showId: int         |
+| - theatre: Theatre    |
+| - auditorium: Auditorium |
+| - movie: Movie        |
+| - timeSlot: datetime  |
+| - isAvailable: bool   |
+| - features: list      |
++-----------------------+
+| + bookSeat()          |
+| + cancelBooking()     |
++-----------------------+
+
++-----------------------+
+|        Movie          |
++-----------------------+
+| - movieId: int        |
+| - name: string        |
+| - cost: float         |
+| - description: string |
+| - poster: image       |
+| - trailer: video      |
+| - duration: int       |
+| - rating: float       |
+| - funFacts: string    |
+| - grade: string       |
++-----------------------+
+| + update()            |
++-----------------------+
+
+```
