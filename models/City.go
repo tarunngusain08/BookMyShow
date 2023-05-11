@@ -4,4 +4,5 @@ type City struct {
 	Id    int
 	Name  string
 	State string
+	Theatres *[]Theatre
 }
