@@ -41,3 +41,35 @@ Here are the use cases for the interaction between the user/customer and BookMyS
 14. Payment Gateway --- (Process refund) ---> User/Customer
 
 These use cases cover the major functionalities provided by BookMyShow and the interaction between the user/customer, BookMyShow, and the external payment gateway.
+
+
+## ER Diagram
+
+```
++-----------------+           +-------------+           +---------------+          +------------+
+|     City        |           |    Theatre  |           |  Auditorium   |          |    Show    |
++-----------------+           +-------------+           +---------------+          +------------+
+| cityId          |<>-------- | theatreId   |<>-------- | auditoriumId  |<>------- | showId     |
+| name            |           | name        |           | name          |          | showTime   |
+|                 |           |             |           | features      |<>--------| theatre    |
+|                 |           |             |           | seats         |          | screen     |
++-----------------+           +-------------+           | costPerSeat   |          | movie      |
+                                                        +---------------+          +------------+
+                                                                                          
+                                           
++---------------+           +------------+           +-----------------+
+|   Movie       |           |   Seat     |           |   Payment       |
++---------------+           +------------+           +-----------------+
+| movieId       |<>-------- | seatId     |<>-------- | paymentId       |
+| name          |           | seatType   |           | orderId         |
+| cost          |           | cost       |           | amount          |
+| description   |           +------------+           | paymentStatus   |
+| poster        |                                    | paymentMethod   |
+| trailer       |                                    +-----------------+
+| duration      |
+| rating        |
+| funFacts      |
+| grade         |
++---------------+
+```
+
