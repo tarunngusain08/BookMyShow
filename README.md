@@ -129,7 +129,6 @@ These use cases cover the major functionalities provided by BookMyShow and the i
 
 ## List of APIs that project includes -
 
-Here are some possible API endpoints for BookMyShow:
 
 1. Cities:
 - GET /cities: Get a list of all cities available.
