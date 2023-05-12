@@ -151,26 +151,26 @@ These use cases cover the major functionalities provided by BookMyShow and the i
 - PUT /auditoriums/{auditorium_id}: Update information about a specific auditorium.
 - DELETE /auditoriums/{auditorium_id}: Delete a specific auditorium from a theatre.
 
-4. Seats:
-- GET /seats: Get a list of all seats in an auditorium.
-- POST /seats: Add a new seat to an auditorium.
-- GET /seats/{seat_id}: Get information about a specific seat.
-- PUT /seats/{seat_id}: Update information about a specific seat.
-- DELETE /seats/{seat_id}: Delete a specific seat from an auditorium.
-
-5. Shows:
+4. Shows:
 - GET /shows: Get a list of all shows in a theatre.
 - POST /shows: Add a new show to a theatre.
 - GET /shows/{show_id}: Get information about a specific show.
 - PUT /shows/{show_id}: Update information about a specific show.
 - DELETE /shows/{show_id}: Delete a specific show from a theatre.
 
-6. Movies:
+5. Movies:
 - GET /movies: Get a list of all movies in the system.
 - POST /movies: Add a new movie to the system.
 - GET /movies/{movie_id}: Get information about a specific movie.
 - PUT /movies/{movie_id}: Update information about a specific movie.
 - DELETE /movies/{movie_id}: Delete a specific movie from the system.
+
+6. Seats:
+- GET /seats: Get a list of all seats in an auditorium.
+- POST /seats: Add a new seat to an auditorium.
+- GET /seats/{seat_id}: Get information about a specific seat.
+- PUT /seats/{seat_id}: Update information about a specific seat.
+- DELETE /seats/{seat_id}: Delete a specific seat from an auditorium.
 
 7. Payments:
 - POST /payments: Make a new payment for a booking.
