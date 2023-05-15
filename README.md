@@ -42,6 +42,93 @@ Here are the use cases for the interaction between the user/customer and BookMyS
 
 These use cases cover the major functionalities provided by BookMyShow and the interaction between the user/customer, BookMyShow, and the external payment gateway.
 
+## DB Design
+
+### User Table
+```
+The `user` table will store information about the users of the BookMyShow platform.
+
+| Column Name | Data Type    | Constraints                |
+| ----------- | ------------| --------------------------|
+| user_id     | SERIAL      | PRIMARY KEY                |
+| email       | VARCHAR(255)| UNIQUE, NOT NULL           |
+| password    | VARCHAR(255)| NOT NULL                   |
+| name        | VARCHAR(255)| NOT NULL                   |
+| phone_number| VARCHAR(15) | NOT NULL                   |
+```
+### City Table
+```
+The `city` table will store information about the cities where the theatres are located.
+
+| Column Name | Data Type    | Constraints                |
+| ----------- | ------------| --------------------------|
+| city_id     | SERIAL      | PRIMARY KEY                |
+| name        | VARCHAR(255)| NOT NULL                   |
+```
+### Theatre Table
+```
+The `theatre` table will store information about the theatres.
+
+| Column Name | Data Type    | Constraints                                          |
+| ----------- | ------------| ----------------------------------------------------|
+| theatre_id  | SERIAL      | PRIMARY KEY                                          |
+| name        | VARCHAR(255)| NOT NULL                                             |
+| city_id     | INTEGER     | FOREIGN KEY REFERENCES city(city_id) ON DELETE CASCADE|
+```
+### Auditorium Table
+```
+The `auditorium` table will store information about the auditoriums in each theatre.
+
+| Column Name   | Data Type    | Constraints                                          |
+| ------------- | ------------| ----------------------------------------------------|
+| auditorium_id | SERIAL      | PRIMARY KEY                                          |
+| name          | VARCHAR(255)| NOT NULL                                             |
+| features      | VARCHAR(1000)| NOT NULL                                             |
+| seats         | INTEGER     | NOT NULL                                             |
+| cost_per_seat | DECIMAL(6,2)| NOT NULL                                             |
+| theatre_id    | INTEGER     | FOREIGN KEY REFERENCES theatre(theatre_id) ON DELETE CASCADE|
+```
+### Movie Table
+```
+The `movie` table will store information about the movies.
+
+| Column Name | Data Type    | Constraints                                          |
+| ----------- | ------------| ----------------------------------------------------|
+| movie_id    | SERIAL      | PRIMARY KEY                                          |
+| name        | VARCHAR(255)| NOT NULL                                             |
+| cost        | DECIMAL(6,2)| NOT NULL                                             |
+| description | VARCHAR(1000)| NOT NULL                                             |
+| poster      | VARCHAR(255)| NOT NULL                                             |
+| trailer     | VARCHAR(255)| NOT NULL                                             |
+| duration    | INTEGER     | NOT NULL                                             |
+| rating      | VARCHAR(10) | NOT NULL                                             |
+| fun_facts   | VARCHAR(1000)| NOT NULL                                             |
+| grade       | VARCHAR(10) | NOT NULL                                             |
+```
+### Show Table
+```
+The `show` table will store information about the shows.
+
+| Column Name | Data Type    | Constraints                                          |
+| ----------- | ------------| ----------------------------------------------------|
+| show_id     | SERIAL      | PRIMARY KEY                                          |
+| show_time   | TIMESTAMP   | NOT NULL                                             |
+| theatre_id  | INTEGER     | FOREIGN KEY REFERENCES theatre(theatre_id) ON DELETE CASCADE|
+| auditorium_id| INTEGER     | FOREIGN KEY REFERENCES auditorium(auditorium_id) ON DELETE CASCADE|
+| movie_id    | INTEGER     | FOREIGN KEY REFERENCES movie(movie_id) ON DELETE CASCADE|
+```
+### Seat Table
+```
+The `seat` table will store information about the seats in each auditorium.
+
+| Column Name | Data Type    | Constraints                                          |
+| ----------- | ------------| ----------------------------------------------------|
+| seat_id     | SERIAL      | PRIMARY KEY                                          |
+| seat_type   | VARCHAR(50) | NOT NULL                                             |
+| cost        | DECIMAL(6,2)| NOT NULL                                             |
+| auditorium_id| INTEGER    
+```
+
 
 ## ER Diagram
 
