@@ -1,9 +1,9 @@
 package models
 
 type Seat struct {
-	Id   int
-	Name string
-	Size int
-	Type string
-	Cost int
+    ID           int
+    Type         string
+    Price        float64
+    Availability bool
+    Auditorium   *Auditorium
 }

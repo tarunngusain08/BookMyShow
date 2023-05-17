@@ -1,7 +1,9 @@
 package models
 
 type Auditorium struct {
-	Id        int
-	Location  string
-	TheatreId int
+    ID         int
+    Name       string
+    Theatre    *Theatre
+    Features   []string
+    Seats      []*Seat
 }

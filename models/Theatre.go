@@ -1,8 +1,9 @@
 package models
 
 type Theatre struct {
-	Id       int
-	Name     string
-	Location string
-	CityId   int
+    ID           int
+    Name         string
+    Address      string
+    City         *City
+    Auditoriums  []*Auditorium
 }

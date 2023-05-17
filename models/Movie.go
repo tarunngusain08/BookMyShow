@@ -1,9 +1,14 @@
 package models
 
 type Movie struct {
-	Id       int
-	Name     string
-	Duration int
-	Language string
-	Cast     []*Actor
+    ID          int
+    Name        string
+    Cost        float64
+    Description string
+    Poster      string
+    Trailer     string
+    Duration    int
+    Rating      float64
+    FunFacts    string
+    Grade       string
 }
