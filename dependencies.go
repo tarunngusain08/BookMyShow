@@ -1,10 +1,11 @@
 package main
 
 import (
+	"database/sql"
+
 	"github.com/dunzoit/BookMyShow/controllers"
 	"github.com/dunzoit/BookMyShow/repos"
 	"github.com/dunzoit/BookMyShow/services"
-	"github.com/dunzoit/focus-list-management/pkg/storage"
 )
 
 type Controller struct {
@@ -13,7 +14,7 @@ type Controller struct {
 
 func InitializeDependencies() *Controller {
 
-	db := storage.DBClient{}
+	db := &sql.DB{}
 	cityRepo := repos.NewCityRepo(db)
 	cityService := services.NewCityService(cityRepo)
 	cityController := controllers.NewCityController(cityService)
