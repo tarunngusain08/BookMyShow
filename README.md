@@ -278,3 +278,10 @@ The `seat` table will store information about the seats in each auditorium.
 - GET /features/{feature_id}: Get information about a specific feature.
 - PUT /features/{feature_id}: Update information about a specific feature.
 - DELETE /features/{feature_id}: Delete a specific feature from an auditorium.
+
+10. User: 
+- GET /users: Get a list of all users.
+- POST /users: Create a new user.
+- GET /users/{user_id}: Get information about a specific user.
+- PUT /users/{user_id}: Update information about a specific user.
+- DELETE /users/{user_id}: Delete a specific user.
