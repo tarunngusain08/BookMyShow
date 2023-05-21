@@ -2,19 +2,15 @@ package dtos
 
 import "github.com/dunzoit/BookMyShow/models"
 
-type GetCitiesResponse struct {
+type CitiesResponse struct {
 	Cities []*models.City
 }
 
-type AddCitiesRequest struct {
+type CreateCitiesRequest struct {
 	Cities []*models.City
 }
 
-type GetCityResponse struct {
-	City *models.City
-}
-
-type UpdateCityRequest struct {
+type CityRequest struct {
 	Id    int    `json:"id"`
 	Name  string `json:"name"`
 	State string `json:"state"`
