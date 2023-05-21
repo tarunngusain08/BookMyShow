@@ -1,5 +1,7 @@
 package dtos
 
+import "time"
+
 type CreateShowRequest struct {
 	TimeSlot   string      `json:"time_slot"`
 	TheatreID  int         `json:"theatre_id"`
@@ -8,6 +10,8 @@ type CreateShowRequest struct {
 	Features   []string    `json:"features"`
 	Seats      []int       `json:"seats"`
 	BookedSeat map[int]int `json:"booked_seats"`
+	StartTime  *time.Time  `json:"start_time"`
+	EndTime    *time.Time  `json:"end_time"`
 }
 
 type ShowResponse struct {

@@ -1,12 +1,6 @@
 package dtos
 
-type CreateTheatreRequest struct {
-	Name    string `json:"name"`
-	Address string `json:"address"`
-	CityID  int    `json:"city_id"`
-}
-
-type UpdateTheatreRequest struct {
+type TheatreRequest struct {
 	Name    string `json:"name"`
 	Address string `json:"address"`
 	CityID  int    `json:"city_id"`
