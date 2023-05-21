@@ -1,12 +1,15 @@
 package models
 
+import "time"
+
 type Show struct {
-    ID         int
-    TimeSlot   string
-    Theatre    *Theatre
-    Screen     int
-    Movie      *Movie
-    Features   []string
-    Seats      []*Seat
-    BookedSeat map[*Seat]int
+	ID         int
+	StartTime  *time.Time
+	EndTime    *time.Time
+	Theatre    *Theatre
+	Screen     int
+	Movie      *Movie
+	Features   []string
+	Seats      []*Seat
+	BookedSeat map[*Seat]int
 }
