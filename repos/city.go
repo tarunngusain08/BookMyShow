@@ -25,14 +25,14 @@ func NewCityRepo(db *sql.DB) *City {
 	}
 }
 
-func (c *City) GetCities() (*dtos.GetCitiesResponse, error) {
+func (c *City) GetCities() (*dtos.CitiesResponse, error) {
 
 	rows, err := c.db.Query(getCities)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	var rowsResponse *dtos.GetCitiesResponse
+	var rowsResponse *dtos.CitiesResponse
 	for rows.Next() {
 		var id int
 		var name string
@@ -53,7 +53,7 @@ func (c *City) GetCities() (*dtos.GetCitiesResponse, error) {
 	return rowsResponse, nil
 }
 
-func (c *City) AddCities(cities *dtos.AddCitiesRequest) error {
+func (c *City) AddCities(cities *dtos.CreateCitiesRequest) error {
 
 	stmt, err := c.db.Prepare(addCities)
 	if err != nil {
@@ -71,7 +71,7 @@ func (c *City) AddCities(cities *dtos.AddCitiesRequest) error {
 	return nil
 }
 
-func (c *City) GetCity(cityId int) (*dtos.GetCityResponse, error) {
+func (c *City) GetCity(cityId int) (*models.City, error) {
 
 	rows, err := c.db.Query(getCity, cityId)
 	if err != nil {
@@ -87,8 +87,7 @@ func (c *City) GetCity(cityId int) (*dtos.GetCityResponse, error) {
 		return nil, err
 	}
 
-	var rowResponse *dtos.GetCityResponse
-	rowResponse.City = &models.City{
+	rowResponse := &models.City{
 		Id:    id,
 		Name:  name,
 		State: state,
@@ -100,7 +99,7 @@ func (c *City) GetCity(cityId int) (*dtos.GetCityResponse, error) {
 	return rowResponse, nil
 }
 
-func (c *City) UpdateCity(cityId int, updatedValues *dtos.UpdateCityRequest) error {
+func (c *City) UpdateCity(cityId int, updatedValues *dtos.CityRequest) error {
 	_, err := c.db.Exec(updateCity, updatedValues.Id, updatedValues.Name, updatedValues.State, cityId)
 	if err != nil {
 		return err
