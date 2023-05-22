@@ -2,32 +2,33 @@ package services
 
 import (
 	"github.com/dunzoit/BookMyShow/dtos"
+	"github.com/dunzoit/BookMyShow/models"
 	"github.com/dunzoit/BookMyShow/repos"
 )
 
 type City struct {
-	repo *repos.City
+	repo repos.CityRepository
 }
 
-func NewCityService(repo *repos.City) *City {
+func NewCityService(repo repos.CityRepository) *City {
 	return &City{
 		repo: repo,
 	}
 }
 
-func (c *City) GetCities() (*dtos.GetCitiesResponse, error) {
+func (c *City) GetCities() (*dtos.CitiesResponse, error) {
 	return c.repo.GetCities()
 }
 
-func (c *City) AddCities(cities *dtos.AddCitiesRequest) error {
+func (c *City) AddCities(cities *dtos.CreateCitiesRequest) error {
 	return c.repo.AddCities(cities)
 }
 
-func (c *City) GetCity(cityId int) (*dtos.GetCityResponse, error) {
+func (c *City) GetCity(cityId int) (*models.City, error) {
 	return c.repo.GetCity(cityId)
 }
 
-func (c *City) UpdateCity(cityId int, updatedValues *dtos.UpdateCityRequest) error {
+func (c *City) UpdateCity(cityId int, updatedValues *models.City) error {
 	return c.repo.UpdateCity(cityId, updatedValues)
 }
 
