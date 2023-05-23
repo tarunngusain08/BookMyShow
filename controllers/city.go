@@ -7,15 +7,16 @@ import (
 
 	"github.com/dunzoit/BookMyShow/dtos"
 	"github.com/dunzoit/BookMyShow/exceptions"
+	"github.com/dunzoit/BookMyShow/models"
 	"github.com/dunzoit/BookMyShow/services"
 	"github.com/gorilla/mux"
 )
 
 type City struct {
-	service *services.City
+	service services.CityServices
 }
 
-func NewCityController(service *services.City) *City {
+func NewCityController(service services.CityServices) *City {
 	return &City{
 		service: service,
 	}
@@ -41,7 +42,7 @@ func (c *City) GetCities(w http.ResponseWriter, req *http.Request) {
 }
 
 func (c *City) AddCities(w http.ResponseWriter, req *http.Request) {
-	cities := &dtos.AddCitiesRequest{}
+	cities := &dtos.CreateCitiesRequest{}
 	err := json.NewDecoder(req.Body).Decode(cities)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
@@ -93,7 +94,7 @@ func (c *City) UpdateCity(w http.ResponseWriter, req *http.Request) {
 		return
 	}
 
-	updatedValues := &dtos.UpdateCityRequest{}
+	updatedValues := &models.City{}
 	err = json.NewDecoder(req.Body).Decode(updatedValues)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
