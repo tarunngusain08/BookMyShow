@@ -24,7 +24,7 @@ func NewPaymentRepo(db *sql.DB) *Payment {
 	}
 }
 
-func (p *Payment) AddPayment(payment *models.Payment) error {
+func (p *Payment) MakePayment(payment *models.Payment) error {
 	var paymentID int
 	err := p.db.QueryRow(addPayment, payment.PaymentType, payment.Amount, payment.Status, payment.Transaction,
 		payment.Time).Scan(&paymentID)
@@ -69,7 +69,7 @@ func (p *Payment) UpdatePayment(paymentID int, updatedValues *models.Payment) er
 	return nil
 }
 
-func (p *Payment) DeletePayment(paymentID int) error {
+func (p *Payment) CancelPayment(paymentID int) error {
 	_, err := p.db.Exec(deletePayment, paymentID)
 	if err != nil {
 		return err

@@ -54,23 +54,23 @@ type SeatRepository interface {
 }
 
 type PaymentRepository interface {
-	AddPayment(payment *models.Payment) error
+	MakePayment(payment *models.Payment) error
 	GetPaymentByID(paymentID int) (*models.Payment, error)
 	UpdatePayment(paymentID int, updatedValues *models.Payment) error
-	DeletePayment(paymentID int) error
+	CancelPayment(paymentID int) error
 }
 
 type BookingRepository interface {
 	GetBookings(userID int) ([]*models.Booking, error)
-	AddBooking(booking *models.Booking) error
+	MakeBooking(booking *models.Booking) error
 	GetBookingByID(bookingID int) (*models.Booking, error)
 	UpdateBooking(bookingID int, updatedValues *models.Booking) error
-	DeleteBooking(bookingID int) error
+	CancelBooking(bookingID int) error
 }
 
 type UserRepository interface {
-	GetAllUsers() ([]*models.User, error)
-	AddUser(user *models.User) error
+	GetUsers() ([]*models.User, error)
+	CreateUser(user *models.User) error
 	GetUserByID(userID int) (*models.User, error)
 	UpdateUser(userID int, updatedValues *models.User) error
 	DeleteUser(userID int) error

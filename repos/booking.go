@@ -68,7 +68,7 @@ func (b *Booking) GetBookings(userID int) ([]*models.Booking, error) {
 	return bookings, nil
 }
 
-func (b *Booking) AddBooking(booking *models.Booking) error {
+func (b *Booking) MakeBooking(booking *models.Booking) error {
 	var bookingID int
 	err := b.db.QueryRow(addBooking, booking.User.ID, booking.Show.ID, booking.NumOfSeats, booking.TotalAmount,
 		booking.Payment.ID, booking.BookingTime, booking.Cancelled).Scan(&bookingID)
@@ -192,7 +192,7 @@ func (b *Booking) UpdateBooking(bookingID int, updatedValues *models.Booking) er
 	return nil
 }
 
-func (b *Booking) DeleteBooking(bookingID int) error {
+func (b *Booking) CancelBooking(bookingID int) error {
 	_, err := b.db.Exec(deleteBooking, bookingID)
 	if err != nil {
 		return err

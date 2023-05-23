@@ -24,7 +24,7 @@ func NewUserRepo(db *sql.DB) *UserRepo {
 	}
 }
 
-func (ur *UserRepo) GetAllUsers() ([]*models.User, error) {
+func (ur *UserRepo) GetUsers() ([]*models.User, error) {
 	rows, err := ur.db.Query(getAllUsers)
 	if err != nil {
 		return nil, err
@@ -47,7 +47,7 @@ func (ur *UserRepo) GetAllUsers() ([]*models.User, error) {
 	return users, nil
 }
 
-func (ur *UserRepo) AddUser(user *models.User) error {
+func (ur *UserRepo) CreateUser(user *models.User) error {
 	var userID int
 	err := ur.db.QueryRow(addUser, user.FirstName, user.LastName, user.Email, user.Phone, user.Address,
 		user.City).Scan(&userID)
