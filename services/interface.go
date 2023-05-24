@@ -6,7 +6,7 @@ import (
 )
 
 type CityServices interface {
-	GetCities() (*dtos.CitiesResponse, error)
+	GetCities() ([]*models.City, error)
 	AddCities(cities *dtos.CreateCitiesRequest) error
 	GetCity(cityId int) (*models.City, error)
 	UpdateCity(cityId int, updatedValues *models.City) error
@@ -31,7 +31,7 @@ type AuditoriumServices interface {
 
 type ShowServices interface {
 	GetShows() ([]*models.Show, error)
-	AddShows(Show *dtos.CreateShowRequest) error
+	AddShow(Show *dtos.CreateShowRequest) error
 	GetShow(ShowID int) (*models.Show, error)
 	UpdateShow(ShowID int, updatedValues *models.Show) error
 	DeleteShow(ShowID int) error
@@ -39,10 +39,10 @@ type ShowServices interface {
 
 type BookingServices interface {
 	GetBookings(userId int) ([]*models.Booking, error)
-	AddBooking(Booking *models.Booking) error
+	MakeBooking(Booking *models.Booking) error
 	GetBooking(BookingId int) (*models.Booking, error)
 	UpdateBooking(BookingId int, updatedValues *models.Booking) error
-	DeleteBooking(BookingId int) error
+	CancelBooking(BookingId int) error
 }
 
 type MovieServices interface {
@@ -54,10 +54,10 @@ type MovieServices interface {
 }
 
 type PaymentServices interface {
-	AddPayment(Payment *models.Payment) error
+	MakePayment(Payment *models.Payment) error
 	GetPayment(PaymentId int) (*models.Payment, error)
 	UpdatePayment(PaymentId int, updatedValues *models.Payment) error
-	DeletePayment(PaymentId int) error
+	CancelPayment(PaymentId int) error
 }
 
 type SeatServices interface {
@@ -66,4 +66,12 @@ type SeatServices interface {
 	GetSeat(SeatID int) (*models.Seat, error)
 	UpdateSeat(SeatID int, updatedValues *models.Seat) error
 	DeleteSeat(SeatID int) error
+}
+
+type UserServices interface {
+	GetUsers() ([]*models.User, error)
+	CreateUser(user *models.User) error
+	GetUser(userID int) (*models.User, error)
+	UpdateUser(userID int, updatedUser *models.User) error
+	DeleteUser(userID int) error
 }
