@@ -25,14 +25,14 @@ func NewCityRepo(db *sql.DB) *City {
 	}
 }
 
-func (c *City) GetCities() (*dtos.CitiesResponse, error) {
+func (c *City) GetCities() ([]*models.City, error) {
 
 	rows, err := c.db.Query(getCities)
 	if err != nil {
 		return nil, err
 	}
 	defer rows.Close()
-	var rowsResponse *dtos.CitiesResponse
+	var rowsResponse []*models.City
 	for rows.Next() {
 		var id int
 		var name string
@@ -45,7 +45,7 @@ func (c *City) GetCities() (*dtos.CitiesResponse, error) {
 			Name:  name,
 			State: state,
 		}
-		rowsResponse.Cities = append(rowsResponse.Cities, row)
+		rowsResponse = append(rowsResponse, row)
 	}
 	if err := rows.Err(); err != nil {
 		return nil, err
@@ -99,7 +99,7 @@ func (c *City) GetCity(cityId int) (*models.City, error) {
 	return rowResponse, nil
 }
 
-func (c *City) UpdateCity(cityId int, updatedValues *dtos.CityRequest) error {
+func (c *City) UpdateCity(cityId int, updatedValues *models.City) error {
 	_, err := c.db.Exec(updateCity, updatedValues.Id, updatedValues.Name, updatedValues.State, cityId)
 	if err != nil {
 		return err
