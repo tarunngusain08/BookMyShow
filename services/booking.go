@@ -19,8 +19,8 @@ func (c *Booking) GetBookings(userId int) ([]*models.Booking, error) {
 	return c.repo.GetBookings(userId)
 }
 
-func (c *Booking) AddBooking(Booking *models.Booking) error {
-	return c.repo.AddBooking(Booking)
+func (c *Booking) MakeBooking(Booking *models.Booking) error {
+	return c.repo.MakeBooking(Booking)
 }
 
 func (c *Booking) GetBooking(BookingId int) (*models.Booking, error) {
@@ -31,6 +31,6 @@ func (c *Booking) UpdateBooking(BookingId int, updatedValues *models.Booking) er
 	return c.repo.UpdateBooking(BookingId, updatedValues)
 }
 
-func (c *Booking) DeleteBooking(BookingId int) error {
-	return c.repo.DeleteBooking(BookingId)
+func (c *Booking) CancelBooking(BookingId int) error {
+	return c.repo.CancelBooking(BookingId)
 }
