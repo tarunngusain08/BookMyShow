@@ -20,7 +20,7 @@ func (c *Show) GetShows() ([]*models.Show, error) {
 	return c.repo.GetShows()
 }
 
-func (c *Show) AddShows(Show *dtos.CreateShowRequest) error {
+func (c *Show) AddShow(Show *dtos.CreateShowRequest) error {
 	return c.repo.AddShow(Show)
 }
 
