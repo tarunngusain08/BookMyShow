@@ -6,7 +6,7 @@ import (
 )
 
 type CityRepository interface {
-	GetCities() (*dtos.CitiesResponse, error)
+	GetCities() ([]*models.City, error)
 	AddCities(cities *dtos.CreateCitiesRequest) error
 	GetCity(cityId int) (*models.City, error)
 	UpdateCity(cityId int, updatedValues *models.City) error
