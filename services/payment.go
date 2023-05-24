@@ -15,8 +15,8 @@ func NewPaymentService(repo repos.PaymentRepository) *Payment {
 	}
 }
 
-func (c *Payment) AddPayment(Payment *models.Payment) error {
-	return c.repo.AddPayment(Payment)
+func (c *Payment) MakePayment(Payment *models.Payment) error {
+	return c.repo.MakePayment(Payment)
 }
 
 func (c *Payment) GetPayment(PaymentId int) (*models.Payment, error) {
@@ -27,6 +27,6 @@ func (c *Payment) UpdatePayment(PaymentId int, updatedValues *models.Payment) er
 	return c.repo.UpdatePayment(PaymentId, updatedValues)
 }
 
-func (c *Payment) DeletePayment(PaymentId int) error {
-	return c.repo.DeletePayment(PaymentId)
+func (c *Payment) CancelPayment(PaymentId int) error {
+	return c.repo.CancelPayment(PaymentId)
 }
