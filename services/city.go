@@ -16,7 +16,7 @@ func NewCityService(repo repos.CityRepository) *City {
 	}
 }
 
-func (c *City) GetCities() (*dtos.CitiesResponse, error) {
+func (c *City) GetCities() ([]*models.City, error) {
 	return c.repo.GetCities()
 }
 
