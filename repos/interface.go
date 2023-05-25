@@ -17,7 +17,7 @@ type TheatreRepository interface {
 	GetTheatres(cityID int) ([]*models.Theatre, error)
 	AddTheatre(theatre *models.Theatre) error
 	GetTheatre(theatreID int) (*models.Theatre, error)
-	UpdateTheatre(theatreID int, updatedValues *dtos.TheatreRequest) error
+	UpdateTheatre(theatreID int, updatedValues *models.Theatre) error
 	DeleteTheatre(theatreID int) error
 }
 
