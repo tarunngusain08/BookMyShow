@@ -1,9 +1,9 @@
 package services
 
 import (
-	"github.com/dunzoit/BookMyShow/dtos"
-	"github.com/dunzoit/BookMyShow/models"
-	"github.com/dunzoit/BookMyShow/repos"
+	"BookMyShow/dtos"
+	"BookMyShow/models"
+	"BookMyShow/repos"
 )
 
 type Movie struct {

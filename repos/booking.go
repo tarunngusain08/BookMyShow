@@ -3,7 +3,7 @@ package repos
 import (
 	"database/sql"
 
-	"github.com/dunzoit/BookMyShow/models"
+	"BookMyShow/models"
 )
 
 const (

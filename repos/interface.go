@@ -1,8 +1,8 @@
 package repos
 
 import (
-	"github.com/dunzoit/BookMyShow/dtos"
-	"github.com/dunzoit/BookMyShow/models"
+	"BookMyShow/dtos"
+	"BookMyShow/models"
 )
 
 type CityRepository interface {

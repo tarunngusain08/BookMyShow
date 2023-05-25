@@ -13,4 +13,5 @@ const (
 	InvalidPaymentID    = "Invalid payment id"
 	InvalidBookingID    = "Invalid booking id"
 	InvalidUserID       = "Invalid user id"
+	SeatOccupied        = "Seat is currently occupied"
 )

@@ -1,8 +1,8 @@
 package services
 
 import (
-	"github.com/dunzoit/BookMyShow/models"
-	"github.com/dunzoit/BookMyShow/repos"
+	"BookMyShow/models"
+	"BookMyShow/repos"
 )
 
 type Auditorium struct {

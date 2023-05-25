@@ -3,9 +3,10 @@ package main
 import (
 	"database/sql"
 
-	"github.com/dunzoit/BookMyShow/controllers"
-	"github.com/dunzoit/BookMyShow/repos"
-	"github.com/dunzoit/BookMyShow/services"
+	"BookMyShow/controllers"
+	"BookMyShow/repos"
+	"BookMyShow/services"
+	"github.com/go-redis/redis/v8"
 )
 
 type Controller struct {
@@ -23,6 +24,7 @@ type Controller struct {
 func InitializeDependencies() *Controller {
 
 	db := &sql.DB{}
+	redisClient := redis.NewClient(&redis.Options{})
 	CityRepo := repos.NewCityRepo(db)
 	CityService := services.NewCityService(CityRepo)
 	CityController := controllers.NewCityController(CityService)
@@ -45,7 +47,7 @@ func InitializeDependencies() *Controller {
 
 	SeatRepo := repos.NewSeatRepo(db)
 	SeatService := services.NewSeatService(SeatRepo)
-	SeatController := controllers.NewSeatController(SeatService)
+	SeatController := controllers.NewSeatController(SeatService, redisClient)
 
 	PaymentRepo := repos.NewPaymentRepo(db)
 	PaymentService := services.NewPaymentService(PaymentRepo)

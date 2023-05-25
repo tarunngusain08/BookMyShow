@@ -4,8 +4,8 @@ import (
 	"database/sql"
 	"time"
 
-	"github.com/dunzoit/BookMyShow/dtos"
-	"github.com/dunzoit/BookMyShow/models"
+	"BookMyShow/dtos"
+	"BookMyShow/models"
 )
 
 const (

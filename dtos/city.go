@@ -1,6 +1,6 @@
 package dtos
 
-import "github.com/dunzoit/BookMyShow/models"
+import "BookMyShow/models"
 
 type CitiesResponse struct {
 	Cities []*models.City

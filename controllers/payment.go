@@ -5,9 +5,9 @@ import (
 	"net/http"
 	"strconv"
 
-	"github.com/dunzoit/BookMyShow/exceptions"
-	"github.com/dunzoit/BookMyShow/models"
-	"github.com/dunzoit/BookMyShow/services"
+	"BookMyShow/exceptions"
+	"BookMyShow/models"
+	"BookMyShow/services"
 	"github.com/gorilla/mux"
 )
 
