@@ -41,7 +41,7 @@ func (c *City) GetCities(w http.ResponseWriter, req *http.Request) {
 	w.Write(response)
 }
 
-func (c *City) AddCities(w http.ResponseWriter, req *http.Request) {
+func (c *City) AddCity(w http.ResponseWriter, req *http.Request) {
 	cities := &dtos.CreateCitiesRequest{}
 	err := json.NewDecoder(req.Body).Decode(cities)
 	if err != nil {
