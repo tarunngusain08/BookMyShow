@@ -1,7 +1,6 @@
 package services
 
 import (
-	"github.com/dunzoit/BookMyShow/dtos"
 	"github.com/dunzoit/BookMyShow/models"
 	"github.com/dunzoit/BookMyShow/repos"
 )
@@ -28,7 +27,7 @@ func (t *Theatre) GetTheatre(theatreID int) (*models.Theatre, error) {
 	return t.repo.GetTheatre(theatreID)
 }
 
-func (t *Theatre) UpdateTheatre(theatreID int, updatedValues *dtos.TheatreRequest) error {
+func (t *Theatre) UpdateTheatre(theatreID int, updatedValues *models.Theatre) error {
 	return t.repo.UpdateTheatre(theatreID, updatedValues)
 }
 
