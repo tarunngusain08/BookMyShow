@@ -42,7 +42,7 @@ func (c *City) GetCities(w http.ResponseWriter, req *http.Request) {
 }
 
 func (c *City) AddCity(w http.ResponseWriter, req *http.Request) {
-	cities := &dtos.CreateCitiesRequest{}
+	cities := &dtos.AddCityRequest{}
 	err := json.NewDecoder(req.Body).Decode(cities)
 	if err != nil {
 		w.WriteHeader(http.StatusBadRequest)
