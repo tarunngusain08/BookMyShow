@@ -7,7 +7,7 @@ import (
 
 type CityServices interface {
 	GetCities() ([]*models.City, error)
-	AddCities(cities *dtos.CreateCitiesRequest) error
+	AddCities(cities *dtos.AddCityRequest) error
 	GetCity(cityId int) (*models.City, error)
 	UpdateCity(cityId int, updatedValues *models.City) error
 	DeleteCity(cityId int) error
