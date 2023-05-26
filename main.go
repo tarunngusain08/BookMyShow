@@ -63,4 +63,5 @@ func main() {
 	router.HandleFunc("/Users/{User-id}", controller.User.UpdateUser).Methods(http.MethodPut)
 	router.HandleFunc("/Users/{User-id}", controller.User.DeleteUser).Methods(http.MethodDelete)
 
+	http.ListenAndServe("localhost:8080", router)
 }
