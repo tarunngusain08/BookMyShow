@@ -53,20 +53,11 @@ func (c *City) GetCities() ([]*models.City, error) {
 	return rowsResponse, nil
 }
 
-func (c *City) AddCities(cities *dtos.CreateCitiesRequest) error {
+func (c *City) AddCities(cities *dtos.AddCityRequest) error {
 
-	stmt, err := c.db.Prepare(addCities)
+	_, err := c.db.Exec(addCities)
 	if err != nil {
 		return err
-	}
-	defer stmt.Close()
-
-	// Execute the prepared statement with each set of values
-	for _, city := range cities.Cities {
-		_, err := stmt.Exec(city.Id, city.Name, city.State)
-		if err != nil {
-			return err
-		}
 	}
 	return nil
 }
