@@ -3,11 +3,11 @@ package dtos
 import "BookMyShow/models"
 
 type CitiesResponse struct {
-	Cities []*models.City
+	Cities []*models.City `json:"cities"`
 }
 
-type CreateCitiesRequest struct {
-	Cities []*models.City
+type AddCityRequest struct {
+	City *models.City `json:"city"`
 }
 
 type CityRequest struct {
