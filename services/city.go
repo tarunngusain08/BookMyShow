@@ -20,7 +20,7 @@ func (c *City) GetCities() ([]*models.City, error) {
 	return c.repo.GetCities()
 }
 
-func (c *City) AddCities(cities *dtos.CreateCitiesRequest) error {
+func (c *City) AddCities(cities *dtos.AddCityRequest) error {
 	return c.repo.AddCities(cities)
 }
 
