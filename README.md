@@ -286,4 +286,4 @@ The `seat` table will store information about the seats in each auditorium.
 - PUT /users/{user_id}: Update information about a specific user.
 - DELETE /users/{user_id}: Delete a specific user.
 
-<img width="1471" alt="Screenshot 2024-04-05 at 5 33 06 PM" src="https://github.com/tarunngusain08/BookMyShow/assets/36428256/bd2e4bd9-e343-43eb-828d-b070816cfd8f">
+<img width="1504" alt="Screenshot 2024-04-08 at 7 15 20 PM" src="https://github.com/tarunngusain08/BookMyShow/assets/36428256/58e60336-c576-442d-bdbe-87066834cc19">
